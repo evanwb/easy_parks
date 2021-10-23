@@ -1,0 +1,27 @@
+<!DOCTYPE html/>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}">
+        <title> Easy Parks </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8  offset-lg-2">
+                    <h1 class="mt-5">Easy Parks</h1>
+                    <form action="/parse_data" class='container' method="POST">
+                        <label>State?</label>
+                        <input name="text">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
