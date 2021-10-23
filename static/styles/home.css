@@ -1,11 +1,29 @@
 body {
     text-align: center;
+    background-image: url(https://i.natgeofe.com/n/025b2b9f-dd62-495a-9a10-74883a4403ac/zion-national-park-utah_16x9.jpg);
+}
+
+h1 h2 {
+
 }
 
 h1 {
-    font-size: 50px;
-    font-family: "Helvetica Neue";
+    font-size: 70px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    
 }
+
+h2 {
+    font-size: 50px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .center {
     text-align: center;
 }

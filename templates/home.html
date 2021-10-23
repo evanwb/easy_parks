@@ -1,6 +1,9 @@
 <!DOCTYPE html/>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/home.css') }}">
         <title> Easy Parks </title>
     </head>
@@ -9,8 +12,7 @@
             <div class="row">
                 <div class="col-lg-8  offset-lg-2">
                     <h1 class="mt-5">Easy Parks</h1>
-                    <form action="/parse_data" class='container' method="POST">
-                        <label>State?</label>
+                    <form action="/data" class='container' method="POST">
                         <input name="text">
                     </form>
                 </div>
