@@ -1,0 +1,40 @@
+<!DOCTYPE html/>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/park.css') }}">
+        <title> Easy Parks </title>
+    </head>
+    <body>
+
+        <div class="title">
+            <h1>
+                {{park["name"]}}
+            </h1>
+        </div>
+        <div class="row"></div>
+        <div class="desc"> 
+            <h3 class='head'>Description</h3>
+            {{park["desc"]}}
+        </div>
+        <h3 class='head'>Activites</h3>
+        <ul class = "acts">
+        {% for act in park["act"] %}
+            <li>{{ act["name"] }}</li>
+        {% endfor %}
+        </ul>
+
+                
+           
+        
+    </body>
+</html>
+
+
+
+
+
+
+

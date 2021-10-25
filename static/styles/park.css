@@ -1,30 +1,58 @@
 body {
-    text-align: center;
     background-color: rgb(207, 245, 163)
 }
 
 
-h1 {
-    font-size: 70px;
+.title {
+    position: relative;
+    
+    font-size: 40px;
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     
+    
 }
 
-h2 {
+.head {
+    position: relative;
+    
+    font-size: 30px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding: 2;
+    
+}
+
+ul {
+    padding: 2;
+}
+
+a {
     font-size: 50px;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
+    text-shadow: 2px 2px 4px #000000;
     font-family: 'Montserrat', sans-serif;
 }
 
-.flashes {
+.desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 2;
+}
+
+.acts {
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
 
 .center {
@@ -32,22 +60,28 @@ h2 {
 }
 
 .container {
-    text-align: center;
     position: relative;
-    border: 1px solid #cdcdcd;
+    padding: 2;
+    top: 20%;
+    padding-bottom: 10px;
+    border: 3px solid #ffffff;
+    border-radius: 50px;
 }
 
 .text_box {
+    text-align: right;
     position: relative;
-    left: 30%;
     padding: 0;
+    right: 10%;
     height: 30px;
     width: 40%;
+    position: relative;
     outline: none;
     border: 1px solid #cdcdcd;
     border-color: rgba(0,0,0,.15);
     background-color: white;
     font-size: 16px;
+    rounded-radius: 3px;
 }
 .advancedSearchTextbox {
     width: 526px;
