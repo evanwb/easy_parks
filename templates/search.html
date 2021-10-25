@@ -7,11 +7,12 @@
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/search.css') }}">
         <title> Easy Parks </title>
     </head>
+	<header><h1 class="title"><a action='/' href='/' >EASY PARKS</a></h1></header>
     <body>
-        <h1 class="title">Easy Parks</h1>
-        <form action="/data" method="POST">
+        
+        <!--<form action="/data" method="POST">
             <input name="text">
-        </form>
+        </form>-->
             {% if parks %}
                 {% for park in parks %}
                 <div class="container">

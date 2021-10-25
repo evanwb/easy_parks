@@ -1,6 +1,7 @@
 body {
     text-align: center;
-    background-color: rgb(207, 245, 163)
+    background-color: slategray;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -14,12 +15,14 @@ h1 {
 }
 
 h2 {
-    font-size: 50px;
+     font-size: 50px;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
+
+
 
 .flashes {
     text-shadow: 2px 2px 4px #000000;
@@ -32,24 +35,48 @@ h2 {
 }
 
 .container {
+    top: 20%;
     text-align: center;
     position: relative;
-    border: 1px solid #cdcdcd;
+    display; inline-block;
 }
 
-input {
-    position: relative;
-    left: 30%;
-    padding: 0;
-    height: 30px;
-    width: 40%;
-    outline: none;
-    border: 1px solid #cdcdcd;
-    border-color: rgba(0,0,0,.15);
-    background-color: white;
-    font-size: 16px;
+input[type=submit]:hover {
+    background-color: lightblue;
+    cursor: pointer;
 }
-.advancedSearchTextbox {
+
+input[type=text], select {
+	width: 40%;
+	position: relative;
+	left: 30%;
+	padding: 12px 20px;
+	margin: 8px 10;
+	display: list-item;
+	border: 0px double #39A9DB;
+	border-radius: 25px;
+}
+
+input[type=submit] {
+	width: 10%;
+	height: 5%;
+	background-color: #F8E2E6;
+	color: #0000FF;
+	padding: 12px 18px;
+	margin: 20px 0;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+} 
+	
+	
+input:hover {
+    background-color: lightblue;
+    cursor: pointer;
+
+
+
+.advancedSearchTextbox {z
     width: 526px;
     margin-right: -4px;
 }
