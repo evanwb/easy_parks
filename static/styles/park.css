@@ -1,12 +1,26 @@
 body {
-    background-color: rgb(207, 245, 163)
+    background-color: #D8C3A5;
 }
 
-
 .title {
+    text-align: center;
+}
+
+header img {
+    width: 100%;
+    height 100;
+}
+
+.header {
+    display: flex
+    height: 100;
+    object-fit: contain;
+}
+
+h1 a {
     position: relative;
-    
-    font-size: 40px;
+    text-align: center;
+    font-size: 200%;
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
@@ -17,11 +31,10 @@ body {
 
 .head {
     position: relative;
-    
     font-size: 30px;
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
-    color: #fff;
+    color: #E85A4F;
     font-family: 'Montserrat', sans-serif;
     padding: 2;
     
@@ -38,6 +51,7 @@ a {
     color: #fff;
     text-shadow: 2px 2px 4px #000000;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
 
 .desc {
@@ -56,7 +70,10 @@ a {
 }
 
 .center {
-    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container {

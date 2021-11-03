@@ -1,4 +1,6 @@
 import json
+from pyzipcode import ZipCodeDatabase
+
 
 
 def print_json(json_obj):
@@ -10,7 +12,11 @@ def get_state_name(val):
     for key, value in STATES.items():
         if val == value:
             return key
-        
+
+def zip_to_state(code):
+    zcdb = ZipCodeDatabase()
+    zipcode = zcdb[code]
+    return zipcode.state
 
 STATES = {
     "Alabama": "AL",

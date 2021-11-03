@@ -5,9 +5,9 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 global api_key
-global parks
 
-api_key='pQNtyh3wP65oZT5zeLWTMAIRTHTEnTCQE1nRHz9L'
+
+api_key='i9sM3jW7SsBvCXfYV50AugYvXa2zX1pL3HevmxLR'
 
 def park_search(park_code):
     url = 'https://developer.nps.gov/api/v1/parks?parkCode={}&api_key={}'.format(park_code,api_key)
@@ -19,11 +19,10 @@ def park_search(park_code):
             "name": data["data"][0]["fullName"],
             "code": data["data"][0]["parkCode"],
             "desc": data["data"][0]["description"],
-            "act": data["data"][0]["activities"]
+            "act": data["data"][0]["activities"],
+            "imgs": data["data"][0]["images"]
         }
     return park
-
-
 
 
 def state_search(state_code):
@@ -31,10 +30,6 @@ def state_search(state_code):
     response = requests.get(url, verify=False)
     data = response.json()
 
-    park_names = []
-    park_codes = []
-    park_descs = []
-    park_acts = []
     parks = []
   
     for i in range(len(data["data"])):
@@ -42,7 +37,8 @@ def state_search(state_code):
             "name": data["data"][i]["fullName"],
             "code": data["data"][i]["parkCode"],
             "desc": data["data"][i]["description"],
-            "act": data["data"][i]["activities"]
+            "act": data["data"][i]["activities"],
+            "imgs": data["data"][i]["images"]
         }
 
         #names = names.split("\r\n")
@@ -54,7 +50,36 @@ def state_search(state_code):
     
     
     return parks
-    #return list(zip(park_names,park_codes,park_descs,park_acts))
+
+def get_acts():
+    url = 'https://developer.nps.gov/api/v1/activities?api_key={}'.format(api_key)   
+    response = requests.get(url, verify=False)
+    data = response.json()
+    acts = []
+
+    for i in range(len(data["data"])):
+        act = {
+            "name": data["data"][i]["name"],
+            "id": data["data"][i]["id"]
+        }
+        acts.append(act)
+
+    return acts
+
+def act_search(id):
+    url = 'https://developer.nps.gov/api/v1/activities/parks?id={}&limit=10&api_key={}'.format(id, api_key)   
+    response = requests.get(url, verify=False)
+    data = response.json()
+    parks = []
+    if data["data"]:
+        for i in range(len(data["data"][0]['parks'])):
+            park = data["data"][0]['parks'][i]["parkCode"]
+            parks.append(park)
+
+    return parks , data["data"][0]['name']
+
+
+
 
 
 def park_total(code):
@@ -71,14 +96,3 @@ def park_total(code):
 def cli_test(code):
     parks = park_search(code)
     print(parks)
-
-    '''for park in parks:
-        print('{}\r'.format(park['name']))
-        print('{}\r'.format(park['code']))
-        print('{}\r'.format(park['desc']))
-        acts = park['act']
-        for act in acts:
-            print(act['name'])'''
-    print('\r\n')
-
-#cli_test(input('code'))

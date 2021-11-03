@@ -6,7 +6,7 @@ body {
 
 
 h1 {
-    font-size: 120px;
+    font-size: 70px;
     font-weight: 800;
     color: #E85A4F;
     font-family: 'Montserrat', sans-serif;
@@ -34,9 +34,10 @@ h2 {
 }
 
 .container {
+    top: 20%;
     text-align: center;
     position: relative;
-    top: 10%;
+    display; inline-block;
 }
 
 input[type=submit]:hover {
@@ -47,96 +48,34 @@ input[type=submit]:hover {
 
 input[type=text], select {
 	width: 40%;
-    height: 5%;
-    font-size: 30px;
 	position: relative;
 	left: 30%;
 	padding: 12px 20px;
 	margin: 8px 10;
 	display: list-item;
 	border: 5px solid #E85A4F;
-	border-radius: 80px;
+	border-radius: 25px;
 }
 
 input[type=submit] {
 	width: 10%;
 	height: 5%;
-    font-size: 30px;
-    font-family: 'Montserrat', sans-serif;
 	background-color: #E85A4F;
 	color: #fff;
 	padding: 12px 18px;
 	margin: 20px 0;
 	border: none;
-	border-radius: 80px;
+	border-radius: 20px;
 	cursor: pointer;
 } 
 	
 	
 input:hover {
     background-color: #EAE7DC;
+    color: #fff;
     cursor: pointer;
-}
 
-nav {
-    position: relative;
-    background-color: #E85A4F;
-    border-radius: 80px;
-    width: 60%;
-    height: 6%;
-    left: 20%;
-    text-decoration: none;
-    border: none;
-   
-}
 
-nav ul {
-    list-style-type: none;
-    text-align: center;
-    margin: 2.5%;
-    text-decoration: none;
-    border: none;
-}
-
-nav li {
-    display: inline-block;
-    font-size: 1.5em;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-    border: none;
-	
-}
-
-nav li a {
-    display: block;
-	color: #f6eee4;
-    text-align: center;
-    font-size: 40px;
-    margin: 5px;
-    text-decoration: none;
-    
-}
-
-nav li a:hover {
-    display: block;
-    background-color: #EAE7DC;
-    
-	color: #E85A4F;
-    text-align: center;
-    font-size: 40px;
-    margin: 5px;
-    text-decoration: none;
-    
-}
-
-nav a {
-    display: inline;
-	color: #f6eee4;
-    text-align: center;
-    padding: 0.5em 2em;
-    text-decoration: none;
-    
-}
 
 .advancedSearchTextbox {
     width: 526px;

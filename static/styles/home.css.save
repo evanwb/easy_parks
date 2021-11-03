@@ -1,0 +1,92 @@
+body {
+    text-align: center;
+    background-color: green;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1 {
+    font-size: 70px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+h2 {
+     font-size: 50px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2:hover {
+	background-c
+}
+
+.flashes {
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+.container {
+    top: 20%;
+    text-align: center;
+    position: relative;
+    display; inline-block;
+}
+
+input[type=text] {
+    position: relative;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    height: 6%;
+    width: 40%;
+    outline: none;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    position: relative;
+    text-align: center;
+    padding: 2;
+    height: 5%;
+    width: 10%;
+    outline: none;
+    background-color: white;
+    font-size: 16px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 25px;
+}
+ 
+button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+
+
+
+.advancedSearchTextbox {z
+    width: 526px;
+    margin-right: -4px;
+}
+
+

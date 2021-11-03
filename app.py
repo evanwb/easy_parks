@@ -7,40 +7,55 @@ import os
 
  
 app = Flask(__name__)
+app.config.update(SECRET_KEY=os.urandom(24))
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
+# Home Page
 @app.route('/')
 def home():
     return render_template('home.html')
 
+# Search Page
 @app.route('/data', methods=['GET', 'POST'])
 def user_input():
-    text = request.form['text'].upper()
+    url = request.remote_addr
+	
+    text = request.form['text']
+    if text.isdigit():
+        text = zip_to_state(text)
     state = get_state_name(text)
-    body = park_total(text)
+    total = park_total(text)
     parks = state_search(text)
-    for park in parks:
-        '''flash('{}\r'.format(park['name']))
-        flash('{}\r'.format(park['code']))
-        flash('{}\r'.format(park['desc']))
-        acts = park['act']
-        for act in acts:
-            flash(act['name'])'''
-        flash('<div class=\"container\"><p class=\"name\"> {} </p></div>)'.format(park))
-        flash('\r\n')
-    
-    #return '<html><head>  <title> Easy Parks </title></head><body><h1> {} </h1><h3> {} </h3></body></html>'.format(park_total(text), get_flashed_messages()) 
-    return render_template('search.html', parks=parks)
+    return render_template('search.html', total=total, parks=parks)
 
+
+# Park Page
 @app.route('/park', methods=['GET', 'POST'])
 def park_page():
     park_code = request.query_string.decode()
     park = park_search(park_code)
     return render_template('park.html', park=park)
 
-app.config.update(SECRET_KEY=os.urandom(24))
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+
+# Activity Picker
+@app.route('/activites', methods=['GET', 'POST'])
+def show_acts():
+    acts = get_acts()
+    return render_template('acts.html', acts=acts)
+
+# Activity Page
+@app.route('/act', methods=['GET', 'POST'])
+def act_page():
+    act_id = request.query_string.decode()
+    codes, name = act_search(act_id)
+    parks = []
+    for code in codes:
+        parks.append(park_search(code))
+
+    return render_template('search.html', total='Best parks for {}'.format(name), parks=parks)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, threaded=True)

@@ -6,13 +6,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/park.css') }}">
         <title> Easy Parks </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
+        <header>
+            <div class='header'><img src="{{ park['imgs'][0]['url'] }}" /></div>
+            
+            <div class='center'>
+                <h1>
+                    <a action="/" href="/">{{park["name"]}}</a>
+                </h1>
+        </div>
+        </header>
 
-        <div class="title">
-            <h1>
-                {{park["name"]}}
-            </h1>
+       
         </div>
         <div class="row"></div>
         <div class="desc"> 
@@ -22,7 +30,7 @@
         <h3 class='head'>Activites</h3>
         <ul class = "acts">
         {% for act in park["act"] %}
-            <li>{{ act["name"] }}</li>
+            <li><a href="/act?{{act.id}}">{{ act["name"] }}</a></li>
         {% endfor %}
         </ul>
 
