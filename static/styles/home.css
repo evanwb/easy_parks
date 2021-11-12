@@ -1,15 +1,23 @@
 body {
-    text-align: center;
-    background-color: #D8C3A5;
+    text-decoration: none;
+    
     font-family: 'Montserrat', sans-serif;
+    background: -webkit-linear-gradient(to right, #d8dae6, #106494);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976);
+    
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+ 
 }
 
 
 h1 {
-    font-size: 120px;
+    font-size: 300%;
     font-weight: 800;
-    color: #E85A4F;
+    color: #e9d8a6;
     font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
     
 }
 
@@ -23,47 +31,45 @@ h2 {
 
 
 
-.flashes {
-    text-shadow: 2px 2px 4px #000000;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-}
 
 .center {
     text-align: center;
 }
 
-.container {
+.container-box {
     text-align: center;
     position: relative;
     top: 10%;
+    
 }
 
 input[type=submit]:hover {
     background-color: #EAE7DC;
-    color: E85A4F;
+    color: e9d8a6;
     cursor: pointer;
 }
 
 input[type=text], select {
+  display: inline;
 	width: 40%;
-    height: 5%;
-    font-size: 30px;
+  height: 5%;
+  font-size: 50%;
 	position: relative;
 	left: 30%;
 	padding: 12px 20px;
 	margin: 8px 10;
 	display: list-item;
-	border: 5px solid #E85A4F;
+	border: 5px solid #e9d8a6;
 	border-radius: 80px;
 }
 
 input[type=submit] {
+  display: inline;
 	width: 10%;
 	height: 5%;
-    font-size: 30px;
-    font-family: 'Montserrat', sans-serif;
-	background-color: #E85A4F;
+  font-size: 40%;
+  font-family: 'Montserrat', sans-serif;
+	background-color: #e9d8a6;
 	color: #fff;
 	padding: 12px 18px;
 	margin: 20px 0;
@@ -76,18 +82,19 @@ input[type=submit] {
 input:hover {
     background-color: #EAE7DC;
     cursor: pointer;
+    box-shadow: 5px 10px black;
 }
 
 nav {
     position: relative;
-    background-color: #E85A4F;
+    background-color: #d73d6c;
     border-radius: 80px;
     width: 60%;
     height: 6%;
     left: 20%;
     text-decoration: none;
     border: none;
-   
+    box-shadow: 5px 10px black;
 }
 
 nav ul {
@@ -111,7 +118,7 @@ nav li a {
     display: block;
 	color: #f6eee4;
     text-align: center;
-    font-size: 40px;
+    font-size: 60%;
     margin: 5px;
     text-decoration: none;
     
@@ -121,9 +128,9 @@ nav li a:hover {
     display: block;
     background-color: #EAE7DC;
     
-	color: #E85A4F;
+	color: #e9d8a6;
     text-align: center;
-    font-size: 40px;
+    font-size: 60%;
     margin: 5px;
     text-decoration: none;
     
@@ -138,7 +145,33 @@ nav a {
     
 }
 
-.advancedSearchTextbox {
-    width: 526px;
-    margin-right: -4px;
+
+.grid {
+  position: relative;
+  width: 100%;
+  margin: 8;
+
+  text-align: center;
+  font-size: 260%;
+
+  
 }
+
+.tile a {
+  float: left;
+  opacity: 0.5;
+  background-color: slategray;
+  border: px solid black;
+  border-radius: 25px;
+  box-shadow: 10 10 10px rgba(0, 0, 0,);
+  color: white;
+  margin: 2%;
+  padding: 2%;
+  width: 18%;
+  height: 5%;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  grid-column:  1 / span 2;
+}
+

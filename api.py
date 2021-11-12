@@ -5,14 +5,16 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 global api_key
+global park
+global webcams
 
-
-api_key='i9sM3jW7SsBvCXfYV50AugYvXa2zX1pL3HevmxLR'
+api_key='mKq6LYmilSkfmzGIDcWpkT84kTmhUTgmnd2ytocs'
 
 def park_search(park_code):
     url = 'https://developer.nps.gov/api/v1/parks?parkCode={}&api_key={}'.format(park_code,api_key)
     response = requests.get(url, verify=False)
     data = response.json()
+    park ={}
 
     for i in range(len(data["data"])):
         park = {
@@ -20,8 +22,13 @@ def park_search(park_code):
             "code": data["data"][0]["parkCode"],
             "desc": data["data"][0]["description"],
             "act": data["data"][0]["activities"],
-            "imgs": data["data"][0]["images"]
+            "imgs": data["data"][0]["images"],
+            "state": data["data"][0]["states"],
+            "contacts": data["data"][0]["contacts"],
+            "addresses": data["data"][0]["addresses"],
+            "webcams": webcam_search(data["data"][0]["parkCode"])
         }
+
     return park
 
 
@@ -66,19 +73,25 @@ def get_acts():
 
     return acts
 
-def act_search(id):
+def act_search(id, limit=10):
     url = 'https://developer.nps.gov/api/v1/activities/parks?id={}&limit=10&api_key={}'.format(id, api_key)   
     response = requests.get(url, verify=False)
     data = response.json()
     parks = []
     if data["data"]:
-        for i in range(len(data["data"][0]['parks'])):
-            park = data["data"][0]['parks'][i]["parkCode"]
-            parks.append(park)
+        if limit < len(data["data"][0]['parks']):
+            for i in range(limit):
+                code = data["data"][0]['parks'][i]["parkCode"]
+                park = park_search(code)
+                parks.append(park)
+        else:
+            for i in range(len(data["data"][0]['parks'])):
+                code = data["data"][0]['parks'][i]["parkCode"]
+                park = park_search(code)
+                parks.append(park)
+        
 
-    return parks , data["data"][0]['name']
-
-
+    return parks, data["data"][0]['name']
 
 
 
@@ -93,6 +106,26 @@ def park_total(code):
 
     return (res)
 
-def cli_test(code):
-    parks = park_search(code)
-    print(parks)
+
+def webcam_search(park_code):
+    url = 'https://developer.nps.gov/api/v1/webcams?parkCode={}&api_key={}'.format(park_code,api_key)
+    response = requests.get(url, verify=False)
+    data = response.json()
+    webcams = []
+
+    for i in range(len(data["data"])):
+        webcam = {
+            "title": data["data"][i]["title"],
+            "url": data["data"][i]["url"],
+            "desc": data["data"][i]["description"],
+            "imgs": data["data"][i]["images"]
+        }
+        webcams.append(webcam)
+        
+    return webcams
+
+#print(act_search('071BA73C-1D3C-46D4-A53C-00D5602F7F0E'))
+
+#print(park_search('acad')['contacts']['phoneNumbers'])
+for num in park_search('acad')['contacts']['phoneNumbers']:
+    print(num['phoneNumber'],num['type'] )

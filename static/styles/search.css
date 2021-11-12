@@ -7,6 +7,12 @@ body {
     color: #E85A4F;
 	text-shadow: 2px 2px 4px #000000;
     width: 100%;
+    background: -webkit-linear-gradient(to right, #d8dae6, #106494);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+ 
 }
 
 
@@ -109,6 +115,5 @@ input {
     outline: none;
     border: 1px solid #E85A4F;
     border-color: rgba(0,0,0,.15);
-    background-color: white;
     font-size: 16px;
 }

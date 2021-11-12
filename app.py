@@ -15,12 +15,18 @@ Session(app)
 # Home Page
 @app.route('/')
 def home():
-    return render_template('home.html')
+    acts = get_acts()
+    return render_template('home.html', acts=acts)
 
 # Search Page
 @app.route('/data', methods=['GET', 'POST'])
 def user_input():
-    url = request.remote_addr
+    if request.headers.getlist("X-Forwarded-For"):
+        ip = request.headers.getlist("X-Forwarded-For")[0]
+    else:
+        ip = request.remote_addr
+
+    print(ip)
 	
     text = request.form['text']
     if text.isdigit():
@@ -49,10 +55,8 @@ def show_acts():
 @app.route('/act', methods=['GET', 'POST'])
 def act_page():
     act_id = request.query_string.decode()
-    codes, name = act_search(act_id)
-    parks = []
-    for code in codes:
-        parks.append(park_search(code))
+
+    parks, name = act_search(act_id)
 
     return render_template('search.html', total='Best parks for {}'.format(name), parks=parks)
 

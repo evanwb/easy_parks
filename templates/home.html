@@ -14,7 +14,8 @@
                 <li><a href="/activites">Activites</a></li>
               </ul>
           </nav>
-        <div class="container">
+          <section class='header'>
+            <div class="container">
                 <div class="center">
                     <h1 class="mt-5">EasyParks</h1>
                     <form action="/data" class='text_box' method="POST">
@@ -22,14 +23,17 @@
                         <input class='button' type="submit" value='Search'> 
                     </form>
                 </div>
+            </div>
+        </section>
+        <section class='acts'>
+            <div class='grid'>
+                {% for act in acts%}
+                    <div class="tile"><a href="/act?{{act.id}}">{{act.name}}</a></div>
+                {% endfor %}
+            </div>
+        </section>
 
-        </div>
     </body>
 </html>
-
-
-
-
-
 
 
