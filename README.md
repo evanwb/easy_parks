@@ -1,4 +1,4 @@
-# easy_parks
+# Easy Parks
 
 ## A flask web app to help users find park from location or activity
 
@@ -11,3 +11,5 @@
   python app.py
 ```
 ![Home](images/home.png)
+![Search](images/search.png)
+![Park](images/park.png)
