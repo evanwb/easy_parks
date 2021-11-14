@@ -1,5 +1,5 @@
 body {
-    background: -webkit-linear-gradient(to right, #d8dae6, #106494);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #d8dae6, #106494);
     background: linear-gradient(to right, #292E49, #536976);
     font-family: 'Montserrat', sans-serif;
     background-size: 100% auto;
@@ -23,7 +23,7 @@ h1 a {
     position: absolute;
     top: 1%;
     text-align: center;
-    font-size: 200%;
+    font-size: 170%;
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
     color: #fff;
@@ -135,7 +135,7 @@ input {
   max-width: 60%;
   position: relative;
   left: 20%;
-  margin-top: 8%;
+  margin-top: 10%;
 }
 
 .mySlides {
@@ -185,7 +185,6 @@ input {
   top: 0;
 }
 
-/* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 15px;
