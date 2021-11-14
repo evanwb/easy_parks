@@ -10,4 +10,4 @@
   pip install -r requirements.txt
   python app.py
 ```
-![Home]['images/home.png']
+![Home]('images/home.png')
