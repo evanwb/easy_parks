@@ -274,12 +274,26 @@ section .acts {
     color: #fff;
 }
 
+
+.contacts a:hover {
+    font-size: 225%;
+    color: #3EB489;
+}
+
 .contacts h3 {
     font-size: 300%;
     font-weight: 800;
     text-align: center;
     color: #3EB489;
 
+}
+
+.webcam a {
+    text-align: center;
+}
+
+.webcam a:hover {
+    color: #3EB489;
 }
 
 section .contacts {

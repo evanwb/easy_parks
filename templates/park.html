@@ -46,16 +46,16 @@
         </main>     
             
         
-
-        <div > 
+ 
             {% if park.webcams|length != 0 %}
+            <section class="webcam">
+                <h3 class="head ">Peer into the Park</h3>
+                {% for cam in park.webcams%}
+                    <div><a href="{{cam.url}}">{{cam.title}}</a></div>
+                {% endfor %}
+            </section>
 
-            <h3 class="head ">Peer into the Park</h3>
-            {% for cam in park.webcams%}
-                <div class='webcam'><a style='text-align: center;'href="{{cam.url}}">{{cam.title}}</a></div>
-            {% endfor %}
             {% endif %}
-        </div>
 
        
         <div class="desc"> 
