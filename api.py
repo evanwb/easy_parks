@@ -33,6 +33,7 @@ def park_search(park_code):
 
 
 def state_search(state_code):
+
     url = 'https://developer.nps.gov/api/v1/parks?stateCode={}&api_key={}'.format(state_code,api_key)
     response = requests.get(url, verify=False)
     data = response.json()
@@ -45,19 +46,21 @@ def state_search(state_code):
             "code": data["data"][i]["parkCode"],
             "desc": data["data"][i]["description"],
             "act": data["data"][i]["activities"],
-            "imgs": data["data"][i]["images"]
+            "imgs": data["data"][i]["images"],
+            "states": data["data"][i]["states"],
+            "addresses": data["data"][0]["addresses"],
         }
 
         #names = names.split("\r\n")
         '''park_names.append(name)
         park_codes.append(code)
         park_descs.append(desc)'''
+     
         parks.append(park)
         #text = '{} \r\n'.format(names)
     
     
     return parks
-
 def get_acts():
     url = 'https://developer.nps.gov/api/v1/activities?api_key={}'.format(api_key)   
     response = requests.get(url, verify=False)
@@ -95,14 +98,11 @@ def act_search(id, limit=10):
 
 
 
-def park_total(code):
-    url = 'https://developer.nps.gov/api/v1/parks?stateCode={}&api_key={}'.format(code,api_key)
-    response = requests.get(url, verify=False)
-    data = response.json()
-    if len(data["data"]) == 0:
+def park_total(parks, code):
+    if len(parks) == 0:
         res = 'Please enter a valid state'
     else:     
-        res = 'There are a total of {} parks in {}'.format(len(data["data"]), get_state_name(code))
+        res = 'There are a total of {} parks in {}'.format(len(parks), get_state_name(code))
 
     return (res)
 

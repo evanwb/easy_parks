@@ -8,18 +8,19 @@
         <title> Easy Parks </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-	<header>
-        <a action='/' href='/' ><h1 class="title">Easy Parks</h1></a>
-        <h1>
-            {{ total }}
-        </h1>
-    </header>
+
     <body>
+        <header>
+            <a action='/' href='/' ><h1 class="title">Easy Parks</h1></a>
+            <h1>
+                {{ total }}
+            </h1>
+        </header>
             {% if parks %}
                 {% for park in parks %}
                 <div class='container'>
                     <div class="container_left">
-                        <a action='/park' href='park?{{ park["code"] }}'>{{ park["name"] }}</a>
+                        <a action='/park' class='name' href='park?{{ park["code"] }}'>{{ park["name"] }}</a>
                         <p>{{ park["desc"] }}</p>     
                     </div>
                     <div class='container_right'>

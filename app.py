@@ -32,8 +32,9 @@ def user_input():
     if text.isdigit():
         text = zip_to_state(text)
     state = get_state_name(text)
-    total = park_total(text)
     parks = state_search(text)
+    total = park_total(parks, text)
+    
     return render_template('search.html', total=total, parks=parks)
 
 
